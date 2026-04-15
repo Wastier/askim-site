@@ -3,193 +3,197 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sadece Senin İçin...</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;0,600;1,400&family=Montserrat:wght@200;300&display=swap" rel="stylesheet">
+    <title>Senin İçin...</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,400&family=Montserrat:wght@100;200;400&display=swap" rel="stylesheet">
     <style>
         :root {
+            --bg: #050505;
             --text: #ffffff;
-            --accent: #ffb7c5;
-            --bg-deep: #080808;
+            --accent: #d4af37; /* Altın sarısı detaylar */
         }
 
         body, html {
             margin: 0; padding: 0;
             width: 100%; height: 100%;
-            background-color: var(--bg-deep);
+            background-color: var(--bg);
             color: var(--text);
             font-family: 'Cormorant Garamond', serif;
             overflow: hidden;
         }
 
         /* PREMIUM ANIMATED BACKGROUND */
-        .mesh-gradient {
+        .luxury-bg {
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100%;
             z-index: -1;
-            background: radial-gradient(at 0% 0%, #1a0b0d 0, transparent 50%), 
-                        radial-gradient(at 50% 0%, #0d0d0d 0, transparent 50%), 
-                        radial-gradient(at 100% 0%, #1a0b0d 0, transparent 50%), 
-                        radial-gradient(at 0% 50%, #050505 0, transparent 50%), 
-                        radial-gradient(at 100% 50%, #241216 0, transparent 50%), 
-                        radial-gradient(at 0% 100%, #1a0b0d 0, transparent 50%), 
-                        radial-gradient(at 50% 100%, #0d0d0d 0, transparent 50%), 
-                        radial-gradient(at 100% 100%, #1a0b0d 0, transparent 50%);
-            background-size: 200% 200%;
-            animation: meshMove 20s ease infinite;
+            background: radial-gradient(circle at 50% 50%, #1a1a1a 0%, #050505 100%);
         }
 
-        @keyframes meshMove {
-            0% { background-position: 0% 0%; }
-            50% { background-position: 100% 100%; }
-            100% { background-position: 0% 0%; }
+        /* Hareket eden zarif toz taneleri / yıldızlar */
+        .particles {
+            position: absolute;
+            width: 100%; height: 100%;
+            background-image: radial-gradient(white 1px, transparent 1px);
+            background-size: 50px 50px;
+            opacity: 0.1;
+            animation: starsMove 100s linear infinite;
         }
 
-        /* PAGE STRUCTURE */
+        @keyframes starsMove {
+            from { background-position: 0 0; }
+            to { background-position: 1000px 1000px; }
+        }
+
+        /* PAGE SYSTEM */
         .page {
             position: absolute;
-            top: 0; left: 0;
             width: 100%; height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 0 20px;
+            padding: 0 10%;
             box-sizing: border-box;
             opacity: 0;
             visibility: hidden;
-            transition: all 1.5s cubic-bezier(0.4, 0, 0.2, 1);
-            transform: scale(1.05) translateY(20px);
+            transition: opacity 2s ease, transform 2s ease;
+            transform: translateY(30px);
         }
 
         .page.active {
             opacity: 1;
             visibility: visible;
-            transform: scale(1) translateY(0);
+            transform: translateY(0);
         }
 
-        /* TEXT ANIMATIONS */
+        /* TYPOGRAPHY ANIMATIONS */
+        .fade-in-text {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 1.5s ease;
+        }
+
+        .active .fade-in-text {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Yazıların sırayla gelmesi için gecikmeler */
+        .delay-1 { transition-delay: 0.5s; }
+        .delay-2 { transition-delay: 1.5s; }
+        .delay-3 { transition-delay: 2.5s; }
+
         h1 {
-            font-size: clamp(2.5rem, 7vw, 4.5rem);
+            font-size: clamp(2rem, 6vw, 4rem);
             font-weight: 300;
-            letter-spacing: 8px;
-            margin-bottom: 20px;
+            letter-spacing: 10px;
             text-transform: uppercase;
+            margin-bottom: 30px;
+            color: var(--accent);
         }
 
-        .message {
-            max-width: 700px;
-            font-size: clamp(1.1rem, 4vw, 1.5rem);
-            line-height: 1.8;
+        p {
+            font-size: clamp(1rem, 3vw, 1.6rem);
+            line-height: 2;
             font-style: italic;
-            color: rgba(255, 255, 255, 0.7);
-            margin-bottom: 40px;
-            font-family: 'Cormorant Garamond', serif;
+            max-width: 800px;
+            color: rgba(255,255,255,0.8);
         }
 
         /* LUXURY BUTTON */
-        .btn-next {
+        .btn-gold {
+            margin-top: 50px;
             background: transparent;
-            border: 1px solid rgba(255,255,255,0.2);
-            color: white;
-            padding: 15px 45px;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            padding: 15px 40px;
             font-family: 'Montserrat', sans-serif;
-            font-weight: 200;
-            letter-spacing: 4px;
+            letter-spacing: 5px;
             cursor: pointer;
-            transition: all 0.6s ease;
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            position: relative;
-            overflow: hidden;
+            transition: all 0.5s ease;
+            opacity: 0;
+            transform: translateY(10px);
         }
 
-        .btn-next:hover {
-            border-color: white;
-            letter-spacing: 6px;
-            background: rgba(255,255,255,0.05);
+        .active .btn-gold {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 4s;
         }
 
-        /* MUSIC CONTROLS */
-        .music-ui {
+        .btn-gold:hover {
+            background: var(--accent);
+            color: black;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+        }
+
+        /* MÜZİK UI */
+        .music-btn {
             position: fixed;
-            bottom: 40px;
-            right: 40px;
+            bottom: 30px;
+            left: 30px;
             z-index: 100;
-            cursor: pointer;
-            font-family: 'Montserrat', sans-serif;
             font-size: 0.7rem;
             letter-spacing: 2px;
+            cursor: pointer;
             opacity: 0.4;
-            transition: 0.3s;
+            color: var(--accent);
         }
-        .music-ui:hover { opacity: 1; }
-
     </style>
 </head>
 <body>
 
-    <div class="mesh-gradient"></div>
+    <div class="luxury-bg"><div class="particles"></div></div>
 
-    <div class="page active" id="page1">
-        <h1>Affet</h1>
-        <div class="message">
-            "Bazı hatalar kelimelere sığmaz, bazı pişmanlıklar ise kalbe... <br>
-            Seni kırmanın ağırlığıyla buradayım."
-        </div>
-        <button class="btn-next" onclick="nextPage(2)">İçeri Gir</button>
+    <div class="page active" id="p1">
+        <h1 class="fade-in-text delay-1">Yalnızca Sana</h1>
+        <p class="fade-in-text delay-2">"Bazı anlar vardır, sessizlik en büyük çığlıktır. <br> Kelimelerin yetmediği yerde kalbim konuşsun istedim."</p>
+        <button class="btn-gold" onclick="goPage(2)">Devam Et</button>
     </div>
 
-    <div class="page" id="page2">
-        <h1>Hatırlıyor musun?</h1>
-        <div class="message">
-            "Gözlerine her baktığımda huzur bulduğum o günleri özlüyorum. <br>
-            Yaptığım her şey için, kalbinde açtığım her yara için özür dilerim."
-        </div>
-        <button class="btn-next" onclick="nextPage(3)">Devam Et</button>
+    <div class="page" id="p2">
+        <h1 class="fade-in-text delay-1">Özür Dilerim</h1>
+        <p class="fade-in-text delay-2">"Seni kırmanın verdiği ağırlığı tarif edemem. <br> Gökyüzündeki tüm yıldızlar şahidim olsun ki, <br> pişmanlığım sonsuz."</p>
+        <button class="btn-gold" onclick="goPage(3)">Beni Dinler misin?</button>
     </div>
 
-    <div class="page" id="page3">
-        <h1>Söz Veriyorum</h1>
-        <div class="message">
-            "Seni bir daha asla böyle üzmeyeceğime, <br>
-            gülüşünü korumak için her şeyi yapacağıma söz veriyorum. <br>
-            Lütfen, her şeye yeniden başlayalım mı?"
-        </div>
-        <button class="btn-next" onclick="location.reload()">Başa Dön</button>
+    <div class="page" id="p3">
+        <h1 class="fade-in-text delay-1">Bize İnan</h1>
+        <p class="fade-in-text delay-2">"Gülüşünün eksik olduğu her gün, benim için karanlıktır. <br> Sana bir kez daha huzur verebilmek için her şeyi yaparım. <br> Lütfen, bize bir şans daha ver."</p>
+        <button class="btn-gold" onclick="goPage(4)">Son Bir Şey...</button>
     </div>
 
-    <div class="music-ui" onclick="toggleMusic()">[ <span id="m-status">MÜZİĞİ AÇ</span> ]</div>
+    <div class="page" id="p4">
+        <h1 class="fade-in-text delay-1">Seni Seviyorum</h1>
+        <p class="fade-in-text delay-2">"Her ne olursa olsun, kalbim hep seninle kalacak. <br> Senden gelecek tek bir kelimeyi bekliyorum... <br> Daima."</p>
+        <button class="btn-gold" onclick="location.reload()">Baştan Oku</button>
+    </div>
 
-    <audio id="myAudio" loop>
-        <source src="sarki.mp3" type="audio/mpeg">
-    </audio>
+    <div class="music-btn" onclick="toggleM()">[ MÜZİK: <span id="mtxt">KAPALI</span> ]</div>
+    <audio id="snd" loop><source src="sarki.mp3" type="audio/mpeg"></audio>
 
     <script>
-        const audio = document.getElementById("myAudio");
-        const mStatus = document.getElementById("m-status");
+        const s = document.getElementById("snd");
+        const t = document.getElementById("mtxt");
 
-        function nextPage(pageNumber) {
-            // Müziği ilk tıklamada başlat (Tarayıcı kuralı için)
-            if(audio.paused) {
-                audio.play();
-                mStatus.innerText = "MÜZİK ÇALIYOR";
-            }
-
-            // Sayfaları değiştir
+        function goPage(n) {
+            // İlk etkileşimde müziği aç
+            if(s.paused) { s.play(); t.innerText = "AÇIK"; }
+            
+            // Tüm sayfaları kapat
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-            document.getElementById('page' + pageNumber).classList.add('active');
+            
+            // Yeni sayfayı aç (küçük bir gecikmeyle daha şık geçiş)
+            setTimeout(() => {
+                document.getElementById('p' + n).classList.add('active');
+            }, 100);
         }
 
-        function toggleMusic() {
-            if (audio.paused) {
-                audio.play();
-                mStatus.innerText = "MÜZİK ÇALIYOR";
-            } else {
-                audio.pause();
-                mStatus.innerText = "MÜZİK DURDU";
-            }
+        function toggleM() {
+            if (s.paused) { s.play(); t.innerText = "AÇIK"; }
+            else { s.pause(); t.innerText = "KAPALI"; }
         }
     </script>
 </body>
