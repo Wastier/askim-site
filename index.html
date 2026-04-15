@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sadece Senin İçin...</title>
+    <title>Kalbimden Sana...</title>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,400&family=Montserrat:wght@100;200;400&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -32,7 +32,7 @@
                         radial-gradient(at 100% 100%, #0d0d0d 0, transparent 50%),
                         linear-gradient(180deg, #050505 0%, #0d0d0d 100%);
             background-size: 200% 200%;
-            animation: meshMove 12s ease infinite alternate;
+            animation: meshMove 15s ease infinite alternate;
         }
 
         @keyframes meshMove {
@@ -53,8 +53,8 @@
             box-sizing: border-box;
             opacity: 0;
             visibility: hidden;
-            transition: all 2s cubic-bezier(0.4, 0, 0.2, 1);
-            transform: scale(1.1);
+            transition: all 2.5s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: scale(1.05);
         }
 
         .page.active {
@@ -87,18 +87,19 @@
         }
 
         .final-title {
-            font-size: clamp(3.5rem, 10vw, 7rem) !important;
+            font-size: clamp(3.5rem, 10vw, 7.5rem) !important;
             color: var(--accent) !important;
             letter-spacing: 15px !important;
             text-shadow: 0 0 50px rgba(224, 36, 94, 0.4);
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            font-weight: 600;
         }
 
         p {
-            font-size: clamp(1.2rem, 3vw, 1.6rem);
+            font-size: clamp(1.2rem, 3vw, 1.7rem);
             line-height: 2.2;
             font-style: italic;
-            max-width: 900px;
+            max-width: 950px;
             color: var(--subtle);
         }
 
@@ -120,7 +121,7 @@
 
         .active .btn-luxury {
             opacity: 1;
-            transition-delay: 5s;
+            transition-delay: 5.5s;
         }
 
         .btn-luxury:hover {
@@ -136,37 +137,37 @@
     <div class="luxury-bg"></div>
 
     <div class="page active" id="p1">
-        <h1 class="fade-in d-1">İlk Adım</h1>
+        <h1 class="fade-in d-1">Sessizliğin Ötesinde</h1>
         <p class="fade-in d-2">
-            Şu an bu satırları okurken kalbinin ne kadar kırgın olduğunu hissedebiliyorum. Belki de benden duymak istediğin en son şey mazeretler... Bu yüzden buraya mazeretlerimi değil, sadece tüm çıplaklığıyla pişmanlığımı getirdim. Senin o güzel kalbine verdiğim her bir huzursuzluk için, her bir uykusuz gecen için binlerce kez özür dilerim.
+            Şu an bu satırları okurken kalbinde hissettiğin o kırgınlığı, ruhundaki o derin sessizliği tüm benliğimle hissediyorum. Biliyorum, belki de şu an benden bir şeyler duymak istediğin en son andasın; ama susmak, seni daha fazla kaybetmek demekti. Buraya mazeretlerimi değil, sadece tüm çıplaklığıyla pişmanlığımı ve sana olan sarsılmaz bağlılığımı getirdim. Senin o tertemiz sevgine verdiğim her bir zarar için binlerce kez özür dilerim.
         </p>
         <button class="btn-luxury" onclick="nextPage(2)">Beni Dinler misin?</button>
     </div>
 
     <div class="page" id="p2">
-        <h1 class="fade-in d-1">Sensizlik Çok Zor</h1>
+        <h1 class="fade-in d-1">Karanlıkta Bir Yolculuk</h1>
         <p class="fade-in d-2">
-            Hata yaptım, hem de senin gibi birini üzme pahasına büyük bir hata. Ama inan bana, senin canını yaktığım her an benim ruhumda çok daha derin yaralar açıldı. Senin sesin olmadan, senin varlığın olmadan her şey ne kadar boşmuş... Dünyadaki tüm ışıklar sönmüş de ben karanlıkta yolumu bulmaya çalışıyormuşum gibi hissediyorum. Lütfen yolumu aydınlatmana izin ver.
+            Hata yaptım sevgilim... Belki de seni kaybetme korkusunun ne kadar büyük bir boşluk olduğunu, hayatımın senden ibaret olduğunu tam anlamıyla kavramadan yaptım bunu. Senin sesin olmadan geçen her gün, aslında nefes almanın ne kadar anlamsız olduğunu bana bir kez daha kanıtlıyor. Senin o huzur veren varlığın olmadan, ben sadece karanlıkta yolunu bulmaya çalışan, pusulası bozulmuş bir gemi gibiyim. Lütfen tekrar yolumu aydınlatmana, seninle yeniden nefes almama izin ver.
         </p>
         <button class="btn-luxury" onclick="nextPage(3)">Bir Söz Veriyorum</button>
     </div>
 
     <div class="page" id="p3">
-        <h1 class="fade-in d-1">Geleceğimize Dair</h1>
+        <h1 class="fade-in d-1">Yepyeni Bir Başlangıç</h1>
         <p class="fade-in d-2">
-            Biliyorum, güvenmek zaman alır; biliyorum, kırılan yerlerin onarılması güçtür. Ama sana söz veriyorum, bu hayattaki tek amacım senin o güzel yüzündeki gülümsemeyi geri getirmek olacak. Attığım her adımda, söylediğim her sözde seni mutlu etmeye çalışacağıma, bir daha asla seni böyle bir hayal kırıklığıyla baş başa bırakmayacağıma tüm kalbimle yemin ederim.
+            Biliyorum, kırılan bir güveni onarmak zaman ister, büyük bir sabır ve emek ister. Ben o zamanı sana vermeye, kırdığım her parçayı tek tek, ilmek ilmek iyileştirmeye hazırım. Attığım her adımda, aldığım her nefeste senin mutluluğunu koruyacağıma, bir daha asla seni bu karanlıkta yapayalnız bırakmayacağıma yemin ederim. Bizim hikayemiz böyle bir kırgınlıkla bitmemeli; daha yaşayacak çok güzel günlerimiz, birlikte kuracağımız çok büyük hayallerimiz var.
         </p>
-        <button class="btn-luxury" onclick="nextPage(4)">Son Bir Şey...</button>
+        <button class="btn-luxury" onclick="nextPage(4)">Son Sözüm...</button>
     </div>
 
     <div class="page" id="p4">
         <h1 class="fade-in d-1 final-title">Affet Beni Sevgilim</h1>
         <p class="fade-in d-2">
-            Sen benim bu dünyadaki tek gerçeğim, sığındığım tek limanımsın. <br>
-            Cevabın ne olursa olsun, ben seni beklemekten, seni sevmekten asla vazgeçmeyeceğim. <br>
-            Lütfen tekrar ellerimi tut...
+            Sen benim bu hayattaki en büyük şansım, fırtınalı denizlerdeki en güvenli limanımsın. <br>
+            Sensiz bir hayatın rengi yok, anlamı yok, tadı yok sevgilim. <br>
+            Cevabın ne olursa olsun, kalbim daima seninle kalacak ve seni bekleyecek. <br>
+            Lütfen tekrar ellerimi tut ve her şeye, çok daha güçlü bir şekilde yeniden başlayalım...
         </p>
-        <button class="btn-luxury" onclick="location.reload()">Baştan Oku</button>
     </div>
 
     <audio id="bgMusic" loop>
@@ -177,12 +178,12 @@
         const audio = document.getElementById("bgMusic");
 
         function nextPage(n) {
-            // İlk butona tıklandığı an müzik başlar (Kullanıcı etkileşimi sağlandığı için)
+            // İlk butona tıklandığında müzik başlar
             if (audio.paused) {
                 audio.play();
             }
 
-            // Sayfaları temizle ve yenisini aç
+            // Sayfaları temizle ve yenisini aktif et
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
             setTimeout(() => {
                 document.getElementById('p' + n).classList.add('active');
