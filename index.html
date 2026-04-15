@@ -1,110 +1,132 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<title>Benim İçin Çok Önemli</title>
-
-<style>
-    body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        text-align: center;
-        background: #ff4d6d;
-        overflow: hidden;
-    }
-
-    .container {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        color: white;
-    }
-
-    h1 {
-        font-size: 40px;
-        margin-bottom: 30px;
-    }
-
-    button {
-        padding: 15px 30px;
-        font-size: 20px;
-        margin: 10px;
-        border: none;
-        border-radius: 10px;
-        cursor: pointer;
-    }
-
-    .yes {
-        background: #00ff88;
-    }
-
-    .no {
-        background: #ff3333;
-    }
-
-    .heart {
-        position: fixed;
-        color: pink;
-        animation: float 5s linear infinite;
-    }
-
-    @keyframes float {
-        from {
-            transform: translateY(100vh);
-            opacity: 1;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Senin İçin...</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #ff4d6d;
+            --secondary-color: #ff758f;
+            --bg-gradient: linear-gradient(135deg, #ff758f 0%, #ff4d6d 100%);
         }
-        to {
-            transform: translateY(-10vh);
-            opacity: 0;
+
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-gradient);
+            overflow: hidden;
+            color: white;
         }
-    }
-</style>
+
+        /* Hareket eden kalpler */
+        .heart {
+            position: absolute;
+            bottom: -100px;
+            font-size: 20px;
+            animation: moveUp 10s linear infinite;
+            opacity: 0.6;
+        }
+
+        @keyframes moveUp {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0.6; }
+            100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 3rem;
+            border-radius: 30px;
+            border: 1px inset rgba(255, 255, 255, 0.3);
+            box-shadow: 0 25px 45px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+            animation: fadeIn 2s ease-out;
+            z-index: 10;
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        button {
+            padding: 12px 35px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .btn-yes {
+            background: white;
+            color: var(--primary-color);
+        }
+
+        .btn-yes:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(255,255,255,0.4);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="container">
-    <h1>Bana Bir Şans Ver Lütfen<br>Seni Çok Seviyorum Aşığım Sana</h1>
-    <button class="yes" onclick="evet()">Evet</button>
-    <button class="no" onclick="hayir()">Hayır</button>
-</div>
+    <div id="hearts-container"></div>
 
-<script>
-    function createHeart() {
-        const heart = document.createElement("div");
-        heart.classList.add("heart");
-        heart.innerHTML = "❤";
-        heart.style.left = Math.random() * 100 + "vw";
-        heart.style.fontSize = Math.random() * 20 + 10 + "px";
-        document.body.appendChild(heart);
-
-        setTimeout(() => {
-            heart.remove();
-        }, 5000);
-    }
-
-    setInterval(createHeart, 200);
-
-    function hayir() {
-        location.reload(); // SAYFAYI YENİLER
-    }
-
-    function evet() {
-        document.body.innerHTML = `
-        <div class="container">
-            <h1 style="font-size:45px;">
-            Seni Çok Seviyorum<br><br>
-            Hayatın boyunca hep yanında olucam hiç bırakmıycam<br>
-            çocuklarımız olucak onları sanal mafik yapıcaz<br>
-            sana hep güzel şeyler yaşatıcam<br>
-            hayatın boyunca hep mutlu olucaksın<br><br>
-            Hayatımın Anlamı ❤️
-            </h1>
+    <div class="container">
+        <h1>Biliyorum ki...</h1>
+        <p>Dünyadaki milyarlarca insan arasından seninle karşılaşmış olmak, benim başıma gelen en güzel şey. Her gülüşünde dünyam biraz daha aydınlanıyor.</p>
+        <div class="btn-group">
+            <button class="btn-yes" onclick="alert('Seni çok seviyorum! ❤️')">Seni Seviyorum</button>
         </div>
-        `;
-    }
-</script>
+    </div>
 
+    <script>
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration = Math.random() * 3 + 5 + "s";
+            document.getElementById('hearts-container').appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 8000);
+        }
+
+        setInterval(createHeart, 400);
+    </script>
 </body>
 </html>
