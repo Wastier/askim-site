@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kalbimden Sana...</title>
+    <title>Sadece Senin İçin...</title>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,400&family=Montserrat:wght@100;200;400&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg: #050505;
             --text: #ffffff;
             --accent: #e0245e;
-            --subtle: rgba(255, 255, 255, 0.6);
+            --subtle: rgba(255, 255, 255, 0.65);
         }
 
         body, html {
@@ -28,11 +28,11 @@
             top: 0; left: 0;
             width: 100%; height: 100%;
             z-index: -1;
-            background: radial-gradient(at 0% 0%, #1a0b0d 0, transparent 45%), 
-                        radial-gradient(at 100% 100%, #0d0d0d 0, transparent 45%),
-                        linear-gradient(180deg, #050505 0%, #0a0a0a 100%);
+            background: radial-gradient(at 0% 0%, #1a0b0d 0, transparent 50%), 
+                        radial-gradient(at 100% 100%, #0d0d0d 0, transparent 50%),
+                        linear-gradient(180deg, #050505 0%, #0d0d0d 100%);
             background-size: 200% 200%;
-            animation: meshMove 15s ease infinite alternate;
+            animation: meshMove 12s ease infinite alternate;
         }
 
         @keyframes meshMove {
@@ -49,25 +49,25 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 0 12%;
+            padding: 0 10%;
             box-sizing: border-box;
             opacity: 0;
             visibility: hidden;
-            transition: all 2.5s cubic-bezier(0.4, 0, 0.2, 1);
-            filter: blur(10px);
+            transition: all 2s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: scale(1.1);
         }
 
         .page.active {
             opacity: 1;
             visibility: visible;
-            filter: blur(0);
+            transform: scale(1);
         }
 
-        /* TYPOGRAPHY */
+        /* TEXT ANIMATIONS */
         .fade-in {
             opacity: 0;
             transform: translateY(30px);
-            transition: all 2s ease;
+            transition: all 2.5s ease;
         }
 
         .active .fade-in {
@@ -79,44 +79,42 @@
         .d-2 { transition-delay: 2.5s; }
 
         h1 {
-            font-size: clamp(1.8rem, 5vw, 3rem);
+            font-size: clamp(2rem, 5vw, 3.5rem);
             font-weight: 300;
-            letter-spacing: 10px;
+            letter-spacing: 12px;
             text-transform: uppercase;
             margin-bottom: 30px;
-            color: var(--text);
         }
 
         .final-title {
-            font-size: clamp(3rem, 9vw, 6rem) !important;
+            font-size: clamp(3.5rem, 10vw, 7rem) !important;
             color: var(--accent) !important;
-            letter-spacing: 12px !important;
-            text-shadow: 0 0 40px rgba(224, 36, 94, 0.3);
-            margin-bottom: 10px;
+            letter-spacing: 15px !important;
+            text-shadow: 0 0 50px rgba(224, 36, 94, 0.4);
+            margin-bottom: 20px;
         }
 
         p {
-            font-size: clamp(1.1rem, 2.8vw, 1.5rem);
+            font-size: clamp(1.2rem, 3vw, 1.6rem);
             line-height: 2.2;
             font-style: italic;
             max-width: 900px;
             color: var(--subtle);
-            font-weight: 300;
         }
 
         /* LUXURY BUTTON */
         .btn-luxury {
             margin-top: 60px;
             background: transparent;
-            border: 1px solid rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.2);
             color: white;
             padding: 20px 60px;
             font-family: 'Montserrat', sans-serif;
-            letter-spacing: 5px;
+            letter-spacing: 6px;
             cursor: pointer;
             transition: all 0.8s ease;
             text-transform: uppercase;
-            font-size: 0.7rem;
+            font-size: 0.8rem;
             opacity: 0;
         }
 
@@ -128,21 +126,8 @@
         .btn-luxury:hover {
             background: white;
             color: black;
-            border-color: white;
-            box-shadow: 0 0 30px rgba(255,255,255,0.1);
-        }
-
-        .music-overlay {
-            position: fixed;
-            bottom: 30px;
-            width: 100%;
-            text-align: center;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.6rem;
-            letter-spacing: 3px;
-            opacity: 0.2;
-            text-transform: uppercase;
-            pointer-events: none;
+            letter-spacing: 8px;
+            box-shadow: 0 0 40px rgba(255,255,255,0.15);
         }
     </style>
 </head>
@@ -151,39 +136,38 @@
     <div class="luxury-bg"></div>
 
     <div class="page active" id="p1">
-        <h1 class="fade-in d-1">Sana Uzanan Bir El</h1>
+        <h1 class="fade-in d-1">İlk Adım</h1>
         <p class="fade-in d-2">
-            Belki şu an yüzüme bile bakmak istemiyorsun, belki kalbinin kapıları bana sımsıkı kapalı. Ama bilmeni isterim ki, o kapının önünde beklemekten asla yorulmayacağım. Sana olan sevgim, yaptığım hatalardan çok daha büyük ve gerçek. Bu site, sadece pişmanlığımın değil, sana olan sonsuz bağlılığımın küçük bir kanıtı.
+            Şu an bu satırları okurken kalbinin ne kadar kırgın olduğunu hissedebiliyorum. Belki de benden duymak istediğin en son şey mazeretler... Bu yüzden buraya mazeretlerimi değil, sadece tüm çıplaklığıyla pişmanlığımı getirdim. Senin o güzel kalbine verdiğim her bir huzursuzluk için, her bir uykusuz gecen için binlerce kez özür dilerim.
         </p>
-        <button class="btn-luxury" onclick="nextPage(2)">Seni Dinliyorum</button>
+        <button class="btn-luxury" onclick="nextPage(2)">Beni Dinler misin?</button>
     </div>
 
     <div class="page" id="p2">
-        <h1 class="fade-in d-1">Hatalarımın Ağırlığı</h1>
+        <h1 class="fade-in d-1">Sensizlik Çok Zor</h1>
         <p class="fade-in d-2">
-            İnsan en çok sevdiğini incitirmiş derler ya, ben o hataya düştüm. Kalbini yorduğum, seni uykusuz bıraktığım veya gözlerini doldurduğum her an için kendimi asla tam olarak affetmeyeceğim. Ama senin affına sığınıyorum sevgilim. Sensiz geçen her gün, eksik kalan bir yapboz gibi; ne tadı var hayatın ne de anlamı.
+            Hata yaptım, hem de senin gibi birini üzme pahasına büyük bir hata. Ama inan bana, senin canını yaktığım her an benim ruhumda çok daha derin yaralar açıldı. Senin sesin olmadan, senin varlığın olmadan her şey ne kadar boşmuş... Dünyadaki tüm ışıklar sönmüş de ben karanlıkta yolumu bulmaya çalışıyormuşum gibi hissediyorum. Lütfen yolumu aydınlatmana izin ver.
         </p>
-        <button class="btn-luxury" onclick="nextPage(3)">Devam Et</button>
+        <button class="btn-luxury" onclick="nextPage(3)">Bir Söz Veriyorum</button>
     </div>
 
     <div class="page" id="p3">
-        <h1 class="fade-in d-1">Yepyeni Bir Sayfa</h1>
+        <h1 class="fade-in d-1">Geleceğimize Dair</h1>
         <p class="fade-in d-2">
-            Sana söz veriyorum; kırdığım her yeri onarmak, güvenini ilmek ilmek yeniden dokumak için her şeyi yapacağım. Bizim hikayemiz burada, böyle bir kırgınlıkla bitmemeli. Aramızdaki o eşsiz bağı, yaşadığımız tüm güzel anıları hatırla. Lütfen, ellerimi yeniden tutmana izin ver. Sana tekrar huzur verebilmeme izin ver.
+            Biliyorum, güvenmek zaman alır; biliyorum, kırılan yerlerin onarılması güçtür. Ama sana söz veriyorum, bu hayattaki tek amacım senin o güzel yüzündeki gülümsemeyi geri getirmek olacak. Attığım her adımda, söylediğim her sözde seni mutlu etmeye çalışacağıma, bir daha asla seni böyle bir hayal kırıklığıyla baş başa bırakmayacağıma tüm kalbimle yemin ederim.
         </p>
-        <button class="btn-luxury" onclick="nextPage(4)">Kalbimden Geçen...</button>
+        <button class="btn-luxury" onclick="nextPage(4)">Son Bir Şey...</button>
     </div>
 
     <div class="page" id="p4">
         <h1 class="fade-in d-1 final-title">Affet Beni Sevgilim</h1>
         <p class="fade-in d-2">
-            Dünyadaki en değerli varlığım, her şeyim... Seni çok ama çok seviyorum. <br>
-            Beni affetmen, bana dünyaları vermen demek. Tekrar 'biz' olabilmek dileğiyle...
+            Sen benim bu dünyadaki tek gerçeğim, sığındığım tek limanımsın. <br>
+            Cevabın ne olursa olsun, ben seni beklemekten, seni sevmekten asla vazgeçmeyeceğim. <br>
+            Lütfen tekrar ellerimi tut...
         </p>
         <button class="btn-luxury" onclick="location.reload()">Baştan Oku</button>
     </div>
-
-    <div class="music-overlay">Sesin çalması için etkileşim bekleniyor</div>
 
     <audio id="bgMusic" loop>
         <source src="sarki.mp3" type="audio/mpeg">
@@ -193,12 +177,12 @@
         const audio = document.getElementById("bgMusic");
 
         function nextPage(n) {
-            // Müziği oynatmayı dene
+            // İlk butona tıklandığı an müzik başlar (Kullanıcı etkileşimi sağlandığı için)
             if (audio.paused) {
-                audio.play().catch(e => console.log("Müzik çalma hatası:", e));
+                audio.play();
             }
 
-            // Sayfaları değiştir
+            // Sayfaları temizle ve yenisini aç
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
             setTimeout(() => {
                 document.getElementById('p' + n).classList.add('active');
