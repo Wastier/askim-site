@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Benim İçin Çok Önemli</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background: #ff4d6d;
+        overflow: hidden;
+    }
+
+    .container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+    }
+
+    h1 {
+        font-size: 40px;
+        margin-bottom: 30px;
+    }
+
+    button {
+        padding: 15px 30px;
+        font-size: 20px;
+        margin: 10px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+    .yes {
+        background: #00ff88;
+    }
+
+    .no {
+        background: #ff3333;
+    }
+
+    .heart {
+        position: fixed;
+        color: pink;
+        animation: float 5s linear infinite;
+    }
+
+    @keyframes float {
+        from {
+            transform: translateY(100vh);
+            opacity: 1;
+        }
+        to {
+            transform: translateY(-10vh);
+            opacity: 0;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Bana Bir Şans Ver Lütfen<br>Seni Çok Seviyorum Aşığım Sana</h1>
+    <button class="yes" onclick="evet()">Evet</button>
+    <button class="no" onclick="hayir()">Hayır</button>
+</div>
+
+<script>
+    function createHeart() {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML = "❤";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = Math.random() * 20 + 10 + "px";
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 5000);
+    }
+
+    setInterval(createHeart, 200);
+
+    function hayir() {
+        location.reload(); // SAYFAYI YENİLER
+    }
+
+    function evet() {
+        document.body.innerHTML = `
+        <div class="container">
+            <h1 style="font-size:45px;">
+            Seni Çok Seviyorum<br><br>
+            Hayatın boyunca hep yanında olucam hiç bırakmıycam<br>
+            çocuklarımız olucak onları sanal mafik yapıcaz<br>
+            sana hep güzel şeyler yaşatıcam<br>
+            hayatın boyunca hep mutlu olucaksın<br><br>
+            Hayatımın Anlamı ❤️
+            </h1>
+        </div>
+        `;
+    }
+</script>
+
+</body>
+</html>
