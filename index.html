@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kalbimden Sana...</title>
+    <title>Sadece Senin İçin...</title>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,400&family=Montserrat:wght@100;200;400&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -51,7 +51,7 @@
             box-sizing: border-box;
             opacity: 0;
             visibility: hidden;
-            transition: all 2s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 2.5s cubic-bezier(0.4, 0, 0.2, 1);
             transform: scale(1.05);
         }
 
@@ -135,33 +135,49 @@
     <div class="page active" id="p1">
         <h1 class="fade-in d-1">İLK ADIM</h1>
         <p class="fade-in d-2">
-            Şu an bu satırları okurken kalbinin ne kadar kırgın olduğunu hissedebiliyorum. Belki de benden duymak istediğin en son şey mazeretler... Bu yüzden buraya mazeretlerimi değil, sadece tüm çıplaklığıyla pişmanlığımı getirdim. Senin o güzel kalbine verdiğim her bir huzursuzluk için, her bir uykusuz geçen için binlerce kez özür dilerim.
+            Şu an bu satırları okurken kalbinin ne kadar kırgın olduğunu hissedebiliyorum. Belki de benden duymak istediğin en son şey mazeretler... Bu yüzden buraya mazeretlerimi değil, sadece tüm çıplaklığıyla pişmanlığımı getirdim. Senin o güzel kalbine verdiğim her bir huzursuzluk için binlerce kez özür dilerim.
         </p>
         <button class="btn-luxury" onclick="nextPage(2)">BENİ DİNLER MİSİN?</button>
     </div>
 
     <div class="page" id="p2">
-        <h1 class="fade-in d-1">SENSİZLİĞİN AĞIRLIĞI</h1>
+        <h1 class="fade-in d-1">SESSİZLİĞİN AĞIRLIĞI</h1>
         <p class="fade-in d-2">
-            Seni kırmanın ne demek olduğunu, yokluğun kalbime bir kor gibi düştüğünde anladım. Hata yaptım sevgilim, hem de senin gibi eşsiz bir ruhu incitecek kadar büyük bir hata. Ama inan bana, sensiz geçen her saniye pişmanlığım katlanarak büyüyor. Senin gülüşünün olmadığı bir dünya benim için sadece sessiz bir karanlıktan ibaret.
+            Seni kırmanın ne demek olduğunu, yokluğun kalbime bir kor gibi düştüğünde anladım. Hata yaptım sevgilim, hem de senin gibi eşsiz bir ruhu incitecek kadar büyük bir hata. Sensiz geçen her saniye pişmanlığım katlanarak büyüyor. Senin gülüşünün olmadığı bir dünya benim için sadece sessiz bir karanlık.
         </p>
         <button class="btn-luxury" onclick="nextPage(3)">DEVAM ET</button>
     </div>
 
     <div class="page" id="p3">
-        <h1 class="fade-in d-1">YENİ BİR SÖZ</h1>
+        <h1 class="fade-in d-1">HATIRALARIMIZ</h1>
         <p class="fade-in d-2">
-            Güvenini yeniden kazanmak için ne gerekiyorsa yapmaya hazırım. Attığım her adımda, aldığım her nefeste seni ne kadar çok sevdiğimi ve değer verdiğimi sana kanıtlayacağım. Bizim hikayemiz burada bitmemeli sevgilim; yaşanacak çok güzel günlerimiz, birlikte kuracağımız çok hayalimiz var. Lütfen ellerimi yeniden tutmama izin ver.
+            Birlikte güldüğümüz o anları, birbirimize verdiğimiz sözleri düşünüyorum. Kalbimdeki yerin o kadar derin ki, yaptığım hataların bu koca sevdayı gölgelemesine izin veremem. Bizim hikayemiz, birbirimizin ellerini bırakmadığımız o güzel günleri hak ediyor. Lütfen o günleri hatırla.
         </p>
-        <button class="btn-luxury" onclick="nextPage(4)">KALBİMDEN GEÇEN...</button>
+        <button class="btn-luxury" onclick="nextPage(4)">DAHASI VAR...</button>
     </div>
 
     <div class="page" id="p4">
+        <h1 class="fade-in d-1">SENİNLEYİM</h1>
+        <p class="fade-in d-2">
+            Zamanı geri alamam ama geleceğimizi yeniden inşa edebilirim. Senin güvenini her gün, her saat ilmek ilmek dokumaya hazırım. Tek bir bakışına, tek bir tebessümüne ihtiyacım var. Ben buradayım, senin yanındayım ve seni her zamankinden daha çok önemsiyorum.
+        </p>
+        <button class="btn-luxury" onclick="nextPage(5)">BİRAZ DAHA...</button>
+    </div>
+
+    <div class="page" id="p5">
+        <h1 class="fade-in d-1">YENİ BİR SÖZ</h1>
+        <p class="fade-in d-2">
+            Attığım her adımda seni ne kadar çok sevdiğimi ve değer verdiğimi sana kanıtlayacağım. Bizim hikayemiz burada bitmemeli sevgilim; yaşanacak çok güzel günlerimiz, birlikte kuracağımız çok hayalimiz var. Lütfen ellerimi yeniden tutmama ve her şeyi tamir etmeme izin ver.
+        </p>
+        <button class="btn-luxury" onclick="nextPage(6)">KALBİMDEN GEÇEN...</button>
+    </div>
+
+    <div class="page" id="p6">
         <h1 class="fade-in d-1 final-title">AFFET BENİ SEVGİLİM</h1>
         <p class="fade-in d-2">
             Sen benim bu dünyadaki tek gerçeğim, sığındığım tek limanımsın. <br>
-            Sensiz bir hayatın rengi yok, anlamı yok. <br>
-            Lütfen tekrar "biz" olalım ve her şeye yeniden başlayalım...
+            Sensiz bir hayatın rengi yok, anlamı yok, tadı yok sevgilim. <br>
+            Lütfen tekrar "biz" olalım ve her şeye, bu sefer çok daha güçlü bir şekilde yeniden başlayalım...
         </p>
     </div>
 
@@ -173,18 +189,16 @@
         const audio = document.getElementById("bgMusic");
 
         function nextPage(n) {
-            // Müzik çalmaya başlar ve sayfalar değiştikçe durmaz.
+            // İlk butonda müziği başlatır, sonraki sayfalarda çalmaya devam eder.
             if (audio.paused) {
-                audio.play().catch(error => console.log("Müzik başlatılamadı:", error));
+                audio.play().catch(e => console.log("Müzik engellendi:", e));
             }
 
-            // Sayfalar arası geçiş
+            // Sayfalar arası geçiş - location.reload() olmadığı için müzik kesilmez.
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
             setTimeout(() => {
-                const nextPageElement = document.getElementById('p' + n);
-                if (nextPageElement) {
-                    nextPageElement.classList.add('active');
-                }
+                const target = document.getElementById('p' + n);
+                if (target) target.classList.add('active');
             }, 100);
         }
     </script>
