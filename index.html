@@ -3,227 +3,194 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sadece Senin İçin... Lütfen</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Sadece Senin İçin...</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;0,600;1,400&family=Montserrat:wght@200;300&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #fffafb; /* Çok hafif pembe beyaz */
-            --text-color: #2c2c2c; /* Koyu füme */
-            --accent-color: #e0245e; /* Zarif bir kırmızı */
-            --font-main: 'Cormorant Garamond', serif;
+            --text: #ffffff;
+            --accent: #ffb7c5;
+            --bg-deep: #080808;
         }
 
-        body {
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            font-family: var(--font-main);
-            overflow: hidden; /* Kalplerin taşmasını önlemek için */
+        body, html {
+            margin: 0; padding: 0;
+            width: 100%; height: 100%;
+            background-color: var(--bg-deep);
+            color: var(--text);
+            font-family: 'Cormorant Garamond', serif;
+            overflow: hidden;
         }
 
-        .container {
-            text-align: center;
-            max-width: 600px;
-            width: 90%;
-            padding: 2rem;
-            animation: fadeIn 3s ease-in-out;
-            position: relative;
-            z-index: 10;
-        }
-
-        h1 {
-            font-size: 3rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: var(--text-color);
-            position: relative;
-            animation: glitchText 4s infinite;
-        }
-
-        h1::after {
-            content: "Lütfen...";
-            font-size: 1.2rem;
-            display: block;
-            margin-top: -10px;
-            color: var(--accent-color);
-            opacity: 0.8;
-            font-weight: 300;
-        }
-
-        .pişmanlık-metni {
-            font-size: 1.3rem;
-            line-height: 1.8;
-            margin-bottom: 3rem;
-            font-weight: 300;
-            opacity: 0.9;
-        }
-
-        .kalp-simge {
-            font-size: 4rem;
-            color: var(--accent-color);
-            animation: heartbeatGlitch 2s infinite;
-            cursor: pointer;
-            margin: 2rem 0;
-        }
-
-        .btn-affet {
-            background: none;
-            border: 1px solid var(--text-color);
-            color: var(--text-color);
-            padding: 12px 40px;
-            font-size: 1.1rem;
-            font-family: var(--font-main);
-            border-radius: 5px;
-            cursor: pointer;
-            transition: all 0.4s ease;
-            font-weight: 400;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .btn-affet:hover {
-            background-color: var(--text-color);
-            color: var(--bg-color);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        /* Arka plan kalpleri */
-        .falling-heart {
-            position: absolute;
-            top: -10px;
-            color: var(--accent-color);
-            opacity: 0.2;
-            animation: fall linear infinite;
-        }
-
-        @keyframes fall {
-            to { transform: translateY(110vh); }
-        }
-
-        /* Animasyonlar */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes glitchText {
-            0% { text-shadow: 1px 0 0 rgba(224,36,94,0.5), -1px 0 0 rgba(0,0,0,0.1); }
-            2% { text-shadow: 3px 0 0 rgba(224,36,94,0.5), -3px 0 0 rgba(0,0,0,0.1); }
-            4% { text-shadow: 1px 0 0 rgba(224,36,94,0.5), -1px 0 0 rgba(0,0,0,0.1); }
-            100% { text-shadow: 1px 0 0 rgba(224,36,94,0.5), -1px 0 0 rgba(0,0,0,0.1); }
-        }
-
-        @keyframes heartbeatGlitch {
-            0% { transform: scale(1); opacity: 1; }
-            10% { transform: scale(1.1); opacity: 0.8; text-shadow: 2px 0 0 rgba(255,255,255,0.6); }
-            20% { transform: scale(1); opacity: 1; }
-            30% { transform: scale(1.1); opacity: 0.8; text-shadow: -2px 0 0 rgba(255,255,255,0.6); }
-            40% { transform: scale(1); opacity: 1; }
-        }
-
-        /* Müzik Kontrolü */
-        .music-control {
+        /* PREMIUM ANIMATED BACKGROUND */
+        .mesh-gradient {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: rgba(255,255,255,0.7);
-            border: 1px solid #ccc;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: -1;
+            background: radial-gradient(at 0% 0%, #1a0b0d 0, transparent 50%), 
+                        radial-gradient(at 50% 0%, #0d0d0d 0, transparent 50%), 
+                        radial-gradient(at 100% 0%, #1a0b0d 0, transparent 50%), 
+                        radial-gradient(at 0% 50%, #050505 0, transparent 50%), 
+                        radial-gradient(at 100% 50%, #241216 0, transparent 50%), 
+                        radial-gradient(at 0% 100%, #1a0b0d 0, transparent 50%), 
+                        radial-gradient(at 50% 100%, #0d0d0d 0, transparent 50%), 
+                        radial-gradient(at 100% 100%, #1a0b0d 0, transparent 50%);
+            background-size: 200% 200%;
+            animation: meshMove 20s ease infinite;
+        }
+
+        @keyframes meshMove {
+            0% { background-position: 0% 0%; }
+            50% { background-position: 100% 100%; }
+            100% { background-position: 0% 0%; }
+        }
+
+        /* PAGE STRUCTURE */
+        .page {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100vh;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            cursor: pointer;
-            z-index: 100;
-            font-size: 1.2rem;
-            color: var(--text-color);
-            backdrop-filter: blur(5px);
+            text-align: center;
+            padding: 0 20px;
+            box-sizing: border-box;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: scale(1.05) translateY(20px);
         }
+
+        .page.active {
+            opacity: 1;
+            visibility: visible;
+            transform: scale(1) translateY(0);
+        }
+
+        /* TEXT ANIMATIONS */
+        h1 {
+            font-size: clamp(2.5rem, 7vw, 4.5rem);
+            font-weight: 300;
+            letter-spacing: 8px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .message {
+            max-width: 700px;
+            font-size: clamp(1.1rem, 4vw, 1.5rem);
+            line-height: 1.8;
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 40px;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        /* LUXURY BUTTON */
+        .btn-next {
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.2);
+            color: white;
+            padding: 15px 45px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 200;
+            letter-spacing: 4px;
+            cursor: pointer;
+            transition: all 0.6s ease;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-next:hover {
+            border-color: white;
+            letter-spacing: 6px;
+            background: rgba(255,255,255,0.05);
+        }
+
+        /* MUSIC CONTROLS */
+        .music-ui {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            z-index: 100;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            opacity: 0.4;
+            transition: 0.3s;
+        }
+        .music-ui:hover { opacity: 1; }
 
     </style>
 </head>
 <body>
 
-    <div id="hearts-container"></div>
+    <div class="mesh-gradient"></div>
 
-    <div class="container">
-        <h1>Çok Üzgünüm</h1>
-        
-        <div class="kalp-simge" onclick="playMusic()">❤️</div>
-
-        <div class="pişmanlık-metni">
-            Biliyorum, seni çok kırdım. Yaptığım hatanın büyüklüğünün farkındayım ve bunun bir mazereti yok. Ama inan bana, senin canını yakmak, dünyadaki en son isteyeceğim şeydi. Sensiz geçen her saniye, hatamın bedelini bana en ağır şekilde ödetiyor. Gülüşünü, sesini, varlığını ne kadar çok özlediğimi anlatacak kelime bulamıyorum. Lütfen, bana bir şans daha ver. Seni kaybetmek istemiyorum. Seni çok seviyorum.
+    <div class="page active" id="page1">
+        <h1>Affet</h1>
+        <div class="message">
+            "Bazı hatalar kelimelere sığmaz, bazı pişmanlıklar ise kalbe... <br>
+            Seni kırmanın ağırlığıyla buradayım."
         </div>
-
-        <button class="btn-affet" onclick="affetildi()">Beni Affeder misin?</button>
+        <button class="btn-next" onclick="nextPage(2)">İçeri Gir</button>
     </div>
 
-    <audio id="bgMusic" loop>
-        <source src="aranizdaki_sarki.mp3" type="audio/mpeg">
-        Tarayıcınız müzik çalmayı desteklemiyor.
+    <div class="page" id="page2">
+        <h1>Hatırlıyor musun?</h1>
+        <div class="message">
+            "Gözlerine her baktığımda huzur bulduğum o günleri özlüyorum. <br>
+            Yaptığım her şey için, kalbinde açtığım her yara için özür dilerim."
+        </div>
+        <button class="btn-next" onclick="nextPage(3)">Devam Et</button>
+    </div>
+
+    <div class="page" id="page3">
+        <h1>Söz Veriyorum</h1>
+        <div class="message">
+            "Seni bir daha asla böyle üzmeyeceğime, <br>
+            gülüşünü korumak için her şeyi yapacağıma söz veriyorum. <br>
+            Lütfen, her şeye yeniden başlayalım mı?"
+        </div>
+        <button class="btn-next" onclick="location.reload()">Başa Dön</button>
+    </div>
+
+    <div class="music-ui" onclick="toggleMusic()">[ <span id="m-status">MÜZİĞİ AÇ</span> ]</div>
+
+    <audio id="myAudio" loop>
+        <source src="sarki.mp3" type="audio/mpeg">
     </audio>
 
-    <div class="music-control" id="musicBtn" onclick="toggleMusic()">🔇</div>
-
     <script>
-        // Müzik Kontrolü
-        const music = document.getElementById('bgMusic');
-        const musicBtn = document.getElementById('musicBtn');
-        let isPlaying = false;
+        const audio = document.getElementById("myAudio");
+        const mStatus = document.getElementById("m-status");
+
+        function nextPage(pageNumber) {
+            // Müziği ilk tıklamada başlat (Tarayıcı kuralı için)
+            if(audio.paused) {
+                audio.play();
+                mStatus.innerText = "MÜZİK ÇALIYOR";
+            }
+
+            // Sayfaları değiştir
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.getElementById('page' + pageNumber).classList.add('active');
+        }
 
         function toggleMusic() {
-            if (isPlaying) {
-                music.pause();
-                musicBtn.innerHTML = '🔇';
+            if (audio.paused) {
+                audio.play();
+                mStatus.innerText = "MÜZİK ÇALIYOR";
             } else {
-                music.play();
-                musicBtn.innerHTML = '🔊';
-            }
-            isPlaying = !isPlaying;
-        }
-
-        // Kalbe tıklayınca da müziği başlat
-        function playMusic() {
-            if (!isPlaying) {
-                music.play();
-                musicBtn.innerHTML = '🔊';
-                isPlaying = true;
+                audio.pause();
+                mStatus.innerText = "MÜZİK DURDU";
             }
         }
-
-        // Buton Fonksiyonu
-        function affetildi() {
-            alert('Bu kelimeyi duymak benim için dünyalara bedel... Seni çok seviyorum. ❤️');
-            // İstersen buraya tıkladıktan sonra başka bir sayfaya yönlendirebilirsin:
-            // window.location.href = "https://kullaniciadi.github.io/proje-adi/ikinci_sayfa.html";
-        }
-
-        // Arka plan kalpleri oluşturma
-        function createHeart() {
-            const container = document.getElementById('hearts-container');
-            const heart = document.createElement('div');
-            heart.classList.add('falling-heart');
-            heart.innerHTML = '❤️';
-            
-            heart.style.left = Math.random() * 100 + "vw";
-            heart.style.fontSize = Math.random() * 20 + 10 + "px";
-            heart.style.animationDuration = Math.random() * 3 + 4 + "s";
-            
-            container.appendChild(heart);
-            
-            setTimeout(() => {
-                heart.remove();
-            }, 7000);
-        }
-
-        setInterval(createHeart, 300);
     </script>
 </body>
 </html>
