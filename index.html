@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Senin İçin...</title>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+    <title>Sadece Senin İçin... Lütfen</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #ff4d6d;
-            --secondary-color: #ff758f;
-            --bg-gradient: linear-gradient(135deg, #ff758f 0%, #ff4d6d 100%);
+            --bg-color: #fffafb; /* Çok hafif pembe beyaz */
+            --text-color: #2c2c2c; /* Koyu füme */
+            --accent-color: #e0245e; /* Zarif bir kırmızı */
+            --font-main: 'Cormorant Garamond', serif;
         }
 
         body {
@@ -19,85 +20,133 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            font-family: 'Poppins', sans-serif;
-            background: var(--bg-gradient);
-            overflow: hidden;
-            color: white;
-        }
-
-        /* Hareket eden kalpler */
-        .heart {
-            position: absolute;
-            bottom: -100px;
-            font-size: 20px;
-            animation: moveUp 10s linear infinite;
-            opacity: 0.6;
-        }
-
-        @keyframes moveUp {
-            0% { transform: translateY(0) rotate(0deg); opacity: 0.6; }
-            100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-main);
+            overflow: hidden; /* Kalplerin taşmasını önlemek için */
         }
 
         .container {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            padding: 3rem;
-            border-radius: 30px;
-            border: 1px inset rgba(255, 255, 255, 0.3);
-            box-shadow: 0 25px 45px rgba(0,0,0,0.1);
             text-align: center;
-            max-width: 500px;
+            max-width: 600px;
             width: 90%;
-            animation: fadeIn 2s ease-out;
+            padding: 2rem;
+            animation: fadeIn 3s ease-in-out;
+            position: relative;
             z-index: 10;
         }
 
         h1 {
-            font-family: 'Dancing Script', cursive;
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            font-size: 3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+            position: relative;
+            animation: glitchText 4s infinite;
         }
 
-        p {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            margin-bottom: 2rem;
+        h1::after {
+            content: "Lütfen...";
+            font-size: 1.2rem;
+            display: block;
+            margin-top: -10px;
+            color: var(--accent-color);
+            opacity: 0.8;
             font-weight: 300;
         }
 
-        .btn-group {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
+        .pişmanlık-metni {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            margin-bottom: 3rem;
+            font-weight: 300;
+            opacity: 0.9;
         }
 
-        button {
-            padding: 12px 35px;
-            font-size: 1.1rem;
-            border: none;
-            border-radius: 50px;
+        .kalp-simge {
+            font-size: 4rem;
+            color: var(--accent-color);
+            animation: heartbeatGlitch 2s infinite;
             cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 500;
+            margin: 2rem 0;
+        }
+
+        .btn-affet {
+            background: none;
+            border: 1px solid var(--text-color);
+            color: var(--text-color);
+            padding: 12px 40px;
+            font-size: 1.1rem;
+            font-family: var(--font-main);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .btn-affet:hover {
+            background-color: var(--text-color);
+            color: var(--bg-color);
+            transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
-        .btn-yes {
-            background: white;
-            color: var(--primary-color);
+        /* Arka plan kalpleri */
+        .falling-heart {
+            position: absolute;
+            top: -10px;
+            color: var(--accent-color);
+            opacity: 0.2;
+            animation: fall linear infinite;
         }
 
-        .btn-yes:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 20px rgba(255,255,255,0.4);
+        @keyframes fall {
+            to { transform: translateY(110vh); }
         }
 
+        /* Animasyonlar */
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
+
+        @keyframes glitchText {
+            0% { text-shadow: 1px 0 0 rgba(224,36,94,0.5), -1px 0 0 rgba(0,0,0,0.1); }
+            2% { text-shadow: 3px 0 0 rgba(224,36,94,0.5), -3px 0 0 rgba(0,0,0,0.1); }
+            4% { text-shadow: 1px 0 0 rgba(224,36,94,0.5), -1px 0 0 rgba(0,0,0,0.1); }
+            100% { text-shadow: 1px 0 0 rgba(224,36,94,0.5), -1px 0 0 rgba(0,0,0,0.1); }
+        }
+
+        @keyframes heartbeatGlitch {
+            0% { transform: scale(1); opacity: 1; }
+            10% { transform: scale(1.1); opacity: 0.8; text-shadow: 2px 0 0 rgba(255,255,255,0.6); }
+            20% { transform: scale(1); opacity: 1; }
+            30% { transform: scale(1.1); opacity: 0.8; text-shadow: -2px 0 0 rgba(255,255,255,0.6); }
+            40% { transform: scale(1); opacity: 1; }
+        }
+
+        /* Müzik Kontrolü */
+        .music-control {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(255,255,255,0.7);
+            border: 1px solid #ccc;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 100;
+            font-size: 1.2rem;
+            color: var(--text-color);
+            backdrop-filter: blur(5px);
+        }
+
     </style>
 </head>
 <body>
@@ -105,28 +154,76 @@
     <div id="hearts-container"></div>
 
     <div class="container">
-        <h1>Biliyorum ki...</h1>
-        <p>Dünyadaki milyarlarca insan arasından seninle karşılaşmış olmak, benim başıma gelen en güzel şey. Her gülüşünde dünyam biraz daha aydınlanıyor.</p>
-        <div class="btn-group">
-            <button class="btn-yes" onclick="alert('Seni çok seviyorum! ❤️')">Seni Seviyorum</button>
+        <h1>Çok Üzgünüm</h1>
+        
+        <div class="kalp-simge" onclick="playMusic()">❤️</div>
+
+        <div class="pişmanlık-metni">
+            Biliyorum, seni çok kırdım. Yaptığım hatanın büyüklüğünün farkındayım ve bunun bir mazereti yok. Ama inan bana, senin canını yakmak, dünyadaki en son isteyeceğim şeydi. Sensiz geçen her saniye, hatamın bedelini bana en ağır şekilde ödetiyor. Gülüşünü, sesini, varlığını ne kadar çok özlediğimi anlatacak kelime bulamıyorum. Lütfen, bana bir şans daha ver. Seni kaybetmek istemiyorum. Seni çok seviyorum.
         </div>
+
+        <button class="btn-affet" onclick="affetildi()">Beni Affeder misin?</button>
     </div>
 
+    <audio id="bgMusic" loop>
+        <source src="aranizdaki_sarki.mp3" type="audio/mpeg">
+        Tarayıcınız müzik çalmayı desteklemiyor.
+    </audio>
+
+    <div class="music-control" id="musicBtn" onclick="toggleMusic()">🔇</div>
+
     <script>
+        // Müzik Kontrolü
+        const music = document.getElementById('bgMusic');
+        const musicBtn = document.getElementById('musicBtn');
+        let isPlaying = false;
+
+        function toggleMusic() {
+            if (isPlaying) {
+                music.pause();
+                musicBtn.innerHTML = '🔇';
+            } else {
+                music.play();
+                musicBtn.innerHTML = '🔊';
+            }
+            isPlaying = !isPlaying;
+        }
+
+        // Kalbe tıklayınca da müziği başlat
+        function playMusic() {
+            if (!isPlaying) {
+                music.play();
+                musicBtn.innerHTML = '🔊';
+                isPlaying = true;
+            }
+        }
+
+        // Buton Fonksiyonu
+        function affetildi() {
+            alert('Bu kelimeyi duymak benim için dünyalara bedel... Seni çok seviyorum. ❤️');
+            // İstersen buraya tıkladıktan sonra başka bir sayfaya yönlendirebilirsin:
+            // window.location.href = "https://kullaniciadi.github.io/proje-adi/ikinci_sayfa.html";
+        }
+
+        // Arka plan kalpleri oluşturma
         function createHeart() {
+            const container = document.getElementById('hearts-container');
             const heart = document.createElement('div');
-            heart.classList.add('heart');
+            heart.classList.add('falling-heart');
             heart.innerHTML = '❤️';
+            
             heart.style.left = Math.random() * 100 + "vw";
-            heart.style.animationDuration = Math.random() * 3 + 5 + "s";
-            document.getElementById('hearts-container').appendChild(heart);
+            heart.style.fontSize = Math.random() * 20 + 10 + "px";
+            heart.style.animationDuration = Math.random() * 3 + 4 + "s";
+            
+            container.appendChild(heart);
             
             setTimeout(() => {
                 heart.remove();
-            }, 8000);
+            }, 7000);
         }
 
-        setInterval(createHeart, 400);
+        setInterval(createHeart, 300);
     </script>
 </body>
 </html>
